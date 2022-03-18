@@ -16,3 +16,5 @@ Update: 18.03.2022, 09:56 am
 Figured out postman
 Works beautifully for Readers, still have to correct Books
 
+
+TO DO: new source for data - .txt si luat cu for intr-un repo nou
