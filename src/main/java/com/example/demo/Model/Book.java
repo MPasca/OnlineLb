@@ -29,7 +29,7 @@ public class Book{
     @Column(name = "year")
     private int year;
 
-    @Column(name = "publisher")
+    @Column(name = "ISBN")
     private String ISBN;
 
     @Column(name = "cover")

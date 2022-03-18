@@ -32,7 +32,7 @@ public class ReaderController {
     }
 
     // Delete
-    @DeleteMapping("/reader/{id}")
+    @DeleteMapping("/readers/{id}")
     public String deleteReader(@PathVariable("id") Long readerID){
         readerService.deleteReaderById(readerID);
 
