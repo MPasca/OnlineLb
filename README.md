@@ -7,7 +7,12 @@ The admins can see the readers' history, what materials are borrowed, who borrow
 
 So far I've configured the database to the projects with the dependencies in maven, I installed PostMan, I created this repository, I created this readme and more are yet to come.
 
-Update: 12.00 am
+Update: 18.03.2022, 12.00 am
 I configured the path from controller to DB and Javadoc
 
 Still have to figure out postman
+
+Update: 18.03.2022, 09:56 am
+Figured out postman
+Works beautifully for Readers, still have to correct Books
+
