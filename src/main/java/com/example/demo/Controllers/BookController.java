@@ -2,6 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Model.Book;
 import com.example.demo.Service.BookService;
+import com.example.demo.Service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @RestController
 public class BookController {
     @Autowired
-    private BookService bookService;
+    private IBookService bookService;
 
     // Create
     @PostMapping("/books")

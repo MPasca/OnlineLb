@@ -18,8 +18,21 @@ public class ReaderServiceHC implements IReaderService{
      */
     List<Reader> readerList = new ArrayList<>();
     private ReaderServiceHC(){
-        readerList.add(new Reader(1, "abcd", "Jane", "Doe", "jane.doe@email.com", "1st st, no 15", "07123456"));
-        readerList.add(new Reader("admin", "Maria", "Pasca", "maria.pasca@email.com", "str Ceahlau, nr 77", "07222222"));
+        Reader reader1 = new Reader();
+        reader1.setFirstName("Jane");
+        reader1.setLastName("Doe");
+        reader1.setPassword("admin");
+        reader1.setEmail("jane.doe@email.com");
+        reader1.setAddress("1st st, no 15");
+        reader1.setTelephone("07123456");
+
+        Reader reader2 = new Reader();
+        reader2.setFirstName("Maria");
+        reader2.setLastName("Pasca");
+        reader2.setPassword("admin");
+        reader2.setEmail("maria.pasca@email.com");
+        reader2.setAddress("str Ceahlau, nr 77");
+        reader2.setTelephone("07222222");
     }
 
     @Override
