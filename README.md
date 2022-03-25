@@ -18,3 +18,7 @@ Works beautifully for Readers, still have to correct Books
 
 
 TO DO: new source for data - .txt si luat cu for intr-un repo nou
+
+Update: 25.03.2022, 09:19 am
+New source data
+not working to create new obj with said data

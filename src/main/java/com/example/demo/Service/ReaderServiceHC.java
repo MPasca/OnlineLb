@@ -7,8 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Reader service hc.
+ * The values are hard coded
+ */
 @Service
 public class ReaderServiceHC implements IReaderService{
+    /**
+     * The Reader list.
+     */
     List<Reader> readerList = new ArrayList<>();
     private ReaderServiceHC(){
         readerList.add(new Reader(1, "abcd", "Jane", "Doe", "jane.doe@email.com", "1st st, no 15", "07123456"));
