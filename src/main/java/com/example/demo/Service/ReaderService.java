@@ -58,7 +58,7 @@ public class ReaderService implements IReaderService{
 
         if(Objects.nonNull(toUpdate.getFirstName())
             && !"".equalsIgnoreCase(toUpdate.getFirstName())){
-            updatedReader.setFirstName(toUpdate.getAddress());
+            updatedReader.setFirstName(toUpdate.getFirstName());
         }
 
         if(Objects.nonNull(toUpdate.getLastName())

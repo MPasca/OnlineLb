@@ -2,17 +2,16 @@ package com.example.demo.Model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "books")
-public class Book{
+public class Book implements Serializable {
     @Id
-    private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -37,4 +36,10 @@ public class Book{
 
     @Column(name = "isBorrowed")
     private boolean isBorrowed;
+
+    public String toString(){
+        String toReturn = id + " " + title + " " + author + " " + genre + " " + publisher + " " +
+                year + " " + ISBN + " " + cover + " " + isBorrowed;
+        return toReturn;
+    }
 }
