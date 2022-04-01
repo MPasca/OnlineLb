@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Reader;
-import com.example.demo.Repos.ReaderRepository;
+import com.example.demo.Repos.ReaderRepoJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ public class ReaderService implements IReaderService{
      * the singleton for ReaderRepo
      */
     @Autowired
-    private ReaderRepository readerRepository;
+    private ReaderRepoJPA readerRepository;
 
     /**
      *

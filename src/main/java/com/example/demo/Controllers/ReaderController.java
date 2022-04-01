@@ -3,6 +3,7 @@ package com.example.demo.Controllers;
 import com.example.demo.Model.Reader;
 import com.example.demo.Service.IReaderService;
 import com.example.demo.Service.ReaderService;
+import com.example.demo.Service.ReaderServiceHC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class ReaderController {
      * singleton for service (we're taking the data from the DB)
      */
     @Autowired
-    private IReaderService readerService;
+    private ReaderServiceHC readerService;
 
     /**
      * @PostMapping - Create operation

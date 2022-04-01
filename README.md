@@ -22,3 +22,7 @@ TO DO: new source for data - .txt si luat cu for intr-un repo nou
 Update: 25.03.2022, 09:19 am
 New source data
 not working to create new obj with said data
+
+Update: 01.04.2022, 07:59 am
+New reader source data - hardcoded
+Great success!
