@@ -21,7 +21,6 @@ public class ReaderRepoHC implements ReaderRepo{
      */
     public ReaderRepoHC(){
         Reader reader1 = new Reader();
-        reader1.setId(1L);
         reader1.setFirstName("Jane");
         reader1.setLastName("Doe");
         reader1.setPassword("admin");
@@ -32,7 +31,6 @@ public class ReaderRepoHC implements ReaderRepo{
         readerList.add(reader1);
 
         Reader reader2 = new Reader();
-        reader1.setId(2L);
         reader2.setFirstName("Maria");
         reader2.setLastName("Pasca");
         reader2.setPassword("admin");

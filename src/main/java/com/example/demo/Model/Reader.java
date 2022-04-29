@@ -1,5 +1,6 @@
 package com.example.demo.Model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,15 +15,16 @@ import javax.persistence.*;
  */
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "readers")
-public class Reader {
+public class Reader extends User{
 
     /**
      * id is marked as an auto-incremented primary key
      */
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private static Long id;
 
     /**
      * for all fields, it marks the column equivalent in the DB
@@ -45,4 +47,11 @@ public class Reader {
 
     @Column(name = "telephone")
     private String telephone;
+
+    /**
+     * Instantiates a new Reader.
+     */
+    public Reader() {
+
+    }
 }
