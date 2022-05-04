@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * the implementation of the interface IReaderService for
-                     *  managing the data in the database
+ * managing the data in the database
  */
 @Service
 public class ReaderService implements IReaderService{
@@ -80,6 +80,12 @@ public class ReaderService implements IReaderService{
                 && !"".equalsIgnoreCase(toUpdate.getAddress())){
             updatedReader.setAddress(toUpdate.getAddress());
         }
+
+        if(Objects.nonNull(toUpdate.getPassword())
+                && !"".equalsIgnoreCase(toUpdate.getPassword())){
+            updatedReader.setEmail(toUpdate.getPassword());
+        }
+
 
         return readerRepository.save(updatedReader);
     }

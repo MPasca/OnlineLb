@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The type Reader repo hc.
+ * ReaderRepo hard coded info
  */
 @Repository
-public class ReaderRepoHC implements ReaderRepo{
+public class ReaderRepoHC {
     /**
-     * The Reader list.
+     * readers list.
      */
     List<Reader> readerList = new ArrayList<>();
 
     /**
-     * Instantiates a new Reader repo hc.
+     * Instantiates a new ReaderRepo
      */
     public ReaderRepoHC(){
         Reader reader1 = new Reader();
@@ -53,7 +53,7 @@ public class ReaderRepoHC implements ReaderRepo{
     }
 
     /**
-     * Find all list.
+     * return all readers
      *
      * @return the list
      */
@@ -62,7 +62,7 @@ public class ReaderRepoHC implements ReaderRepo{
     }
 
     /**
-     * Get reader.
+     * Get reader by id
      *
      * @param searchedID the searched id
      * @return the reader
@@ -72,7 +72,7 @@ public class ReaderRepoHC implements ReaderRepo{
     }
 
     /**
-     * Delete.
+     * Delete reader
      *
      * @param toDeleteID the to delete id
      */

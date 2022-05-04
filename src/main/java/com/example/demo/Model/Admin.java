@@ -10,7 +10,6 @@ import javax.persistence.*;
  */
 @Data
 @Entity
-@AllArgsConstructor
 @Table(name = "admins")
 public
 class Admin extends User {
@@ -20,7 +19,7 @@ class Admin extends User {
      */
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private static Long id;
+    private Long id;
 
     /**
      * for all fields, it marks the column equivalent in the DB
@@ -44,5 +43,20 @@ class Admin extends User {
      */
     public Admin() {
 
+    }
+
+    /**
+     * Instantiates a new Admin.
+     *
+     * @param email     the email
+     * @param password  the password
+     * @param firstName the first name
+     * @param lastName  the last name
+     */
+    public Admin( String email, String password, String firstName, String lastName){
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 }

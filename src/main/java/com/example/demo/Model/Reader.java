@@ -1,6 +1,5 @@
 package com.example.demo.Model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,13 +8,11 @@ import javax.persistence.*;
  * contains all the attributes for a Reader obj
  * the fields are equivalent with what is in the DB
  *
- * @Data: autogenerates getters, setters and constructors
  * @Entity: marks it as an Table entity
  * @Table: marks it as a "readers" table entity
  */
 @Data
 @Entity
-@AllArgsConstructor
 @Table(name = "readers")
 public class Reader extends User{
 
@@ -24,7 +21,7 @@ public class Reader extends User{
      */
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private static Long id;
+    private Long id;
 
     /**
      * for all fields, it marks the column equivalent in the DB
@@ -49,9 +46,30 @@ public class Reader extends User{
     private String telephone;
 
     /**
-     * Instantiates a new Reader.
+     * Instantiates a new empty Reader.
      */
     public Reader() {
 
+    }
+
+    /**
+     * Instantiates a new Reader.
+     *
+     * @param email     the email
+     * @param password  the password
+     * @param firstName the first name
+     * @param lastName  the last name
+     * @param address   the address
+     * @param telephone the telephone
+     */
+    public Reader(String email, String password, String firstName, String lastName, String address, String telephone){
+        this.email = email;
+        this.password = password;
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        this.address = address;
+        this.telephone = telephone;
     }
 }

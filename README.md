@@ -26,3 +26,11 @@ not working to create new obj with said data
 Update: 01.04.2022, 07:59 am
 New reader source data - hardcoded
 Great success!
+
+Update: 04.05.2022, 11:51 pm
+Created the UserFactory, but I have yet to find out how to tie it to the rest of the code.
+Created some unit tests to test the UserFactory.
+Reorganized the code so that's easier to understand
+Created Admin controller and Admin repo and Admin service
+Rewrote BookController and BookService
+First thing in the morning tomorrow, I'm testing them on postman.
