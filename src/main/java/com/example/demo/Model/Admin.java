@@ -54,6 +54,7 @@ class Admin extends User {
      * @param lastName  the last name
      */
     public Admin( String email, String password, String firstName, String lastName){
+        super(email, password, firstName, lastName);
         this.email = email;
         this.password = password;
         this.firstName = firstName;

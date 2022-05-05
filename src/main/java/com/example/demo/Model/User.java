@@ -1,12 +1,11 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
 
 /**
  * The type User.
  */
+@Data
 public abstract class User {
     /**
      * The Email.

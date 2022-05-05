@@ -4,6 +4,9 @@ package com.example.demo.Model;
  * The type Video.
  */
 public class Video extends Material{
+    Long id;
+
+    String name;
     /**
      * The Director.
      */
@@ -34,7 +37,6 @@ public class Video extends Material{
     /**
      * Instantiates a new Video.
      *
-     * @param id        the id
      * @param name      the name
      * @param director  the director
      * @param producers the producers
@@ -43,9 +45,10 @@ public class Video extends Material{
      * @param actors    the actors
      * @param year      the year
      */
-    public Video(Long id, String name, String director, String producers, String genre,
+    public Video(String name, String director, String producers, String genre,
                  int runtime, String actors, int year) {
-        super(id, name, "video");
+        super(name, "video");
+        this.name = name;
         this.director = director;
         this.producers = producers;
         this.genre = genre;
@@ -53,4 +56,6 @@ public class Video extends Material{
         this.actors = actors;
         this.year = year;
     }
+
+    public Video(){}
 }

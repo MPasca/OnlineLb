@@ -33,6 +33,8 @@ public interface IBookService {
      */
     Book getBookById(Long bookId);
 
+    Book getBookByISBN(String ISBN);
+
     /**
      * Update book book.
      *

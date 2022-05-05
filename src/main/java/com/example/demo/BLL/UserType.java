@@ -1,4 +1,4 @@
-package com.example.demo.BLL.Validators;
+package com.example.demo.BLL;
 
 /**
  * The enum User type.

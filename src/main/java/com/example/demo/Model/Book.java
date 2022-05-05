@@ -3,7 +3,6 @@ package com.example.demo.Model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * The type Book.
@@ -11,7 +10,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "books")
-public class Book implements Serializable {
+public class Book extends Material{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
@@ -53,14 +52,16 @@ public class Book implements Serializable {
      * @param title     the title
      * @param author    the author
      * @param genre     the genre
+     * @param ISBN      the ISBN code
      * @param publisher the publisher
      * @param year      the year
      * @param cover     the cover
      */
-    public Book(String title, String author, String genre, String publisher, int year, String cover){
+    public Book(String title, String author, String genre, String ISBN, String publisher, int year, String cover){
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.ISBN = ISBN;
         this.publisher = publisher;
         this.cover = cover;
         this.isBorrowed = false;
@@ -77,10 +78,13 @@ public class Book implements Serializable {
      * @param cover      the cover
      * @param isBorrowed the is borrowed
      */
-    public Book(String title, String author, String genre, String publisher, int year, String cover, boolean isBorrowed){
+    public Book(String title, String author, String genre, String ISBN, String publisher, int year, String cover, boolean isBorrowed){
+        super(title, genre);
+
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.ISBN = ISBN;
         this.publisher = publisher;
         this.year = year;
         this.cover = cover;

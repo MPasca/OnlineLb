@@ -63,6 +63,7 @@ public class Reader extends User{
      * @param telephone the telephone
      */
     public Reader(String email, String password, String firstName, String lastName, String address, String telephone){
+        super(email, password, firstName, lastName);
         this.email = email;
         this.password = password;
 

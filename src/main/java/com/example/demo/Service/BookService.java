@@ -32,6 +32,19 @@ public class BookService implements IBookService {
     }
 
     @Override
+    public Book getBookByISBN(String ISBN) {
+        List<Book> bookList = getBookList();
+
+        for(Book book: bookList){
+            if(book.getISBN().equals(ISBN)){
+                return book;
+            }
+        }
+
+        return null;
+    }
+
+    @Override
     public Book updateBook(Book toUpdate, Long bookID) {
         Book updatedBook = bookRepository.findById(bookID).get();
 
