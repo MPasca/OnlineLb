@@ -34,3 +34,8 @@ Reorganized the code so that's easier to understand
 Created Admin controller and Admin repo and Admin service
 Rewrote BookController and BookService
 First thing in the morning tomorrow, I'm testing them on postman.
+
+Update: 05.05.2022, 04.02 pm
+Added findById for readers, admins and books
+A bit of retouching, solved some bugs
+Wrote the javadoc for the new methods

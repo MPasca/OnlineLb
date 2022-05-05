@@ -40,6 +40,17 @@ public class BookController {
     }
 
     /**
+     * Find book book.
+     *
+     * @param id the id
+     * @return the book
+     */
+    @GetMapping("/books/{id}")
+    public Book findBook(@PathVariable Long id){
+        return bookService.getBookById(id);
+    }
+
+    /**
      * Update a book with new information sent by the user.
      *
      * @param toUpdate the to update book
@@ -60,7 +71,7 @@ public class BookController {
      */
 // Delete
     @DeleteMapping("/books/{id}")
-    public String deleteBook(@PathVariable Long toDeleteID){
+    public String deleteBook(@PathVariable("id") Long toDeleteID){
         bookService.deleteBookById(toDeleteID);
 
         return "Book " + toDeleteID + " has been successfully deleted";

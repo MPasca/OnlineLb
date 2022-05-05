@@ -43,6 +43,11 @@ public class ReaderService implements IReaderService{
         return (List<Reader>) readerRepository.findAll();
     }
 
+    @Override
+    public Reader findReaderById(Long foundId){
+        return readerRepository.findById(foundId).get();
+    }
+
     /**
      *
      * @param toUpdate - the created Reader obj (toUpdate) - contains all new information for the selected Reader

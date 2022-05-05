@@ -43,6 +43,17 @@ public class AdminController {
     }
 
     /**
+     * Find admin by id.
+     *
+     * @param idToFind the id to find
+     * @return the admin
+     */
+    @GetMapping("/admins/{id}")
+    public Admin findAdminById(@PathVariable("id") Long idToFind){
+        return adminService.findAdminById(idToFind);
+    }
+
+    /**
      * Update reader admin.
      *
      * @param toUpdate - the new Admin object containing the new information

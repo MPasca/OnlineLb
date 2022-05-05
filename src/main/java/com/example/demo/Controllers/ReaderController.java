@@ -43,6 +43,17 @@ public class ReaderController {
     }
 
     /**
+     * Find reader by id reader.
+     *
+     * @param idToFind the id to find
+     * @return the reader
+     */
+    @GetMapping("/readers/{id}")
+    public Reader findReaderById(@PathVariable("id") Long idToFind){
+        return readerService.findReaderById(idToFind);
+    }
+
+    /**
      * Update reader reader.
      *
      * @param toUpdate the to update

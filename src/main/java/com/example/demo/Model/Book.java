@@ -1,6 +1,5 @@
 package com.example.demo.Model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -38,7 +37,7 @@ public class Book implements Serializable {
     @Column(name = "cover")
     private String cover;
 
-    @Column(name = "isBorrowed")
+    @Column(name = "is_borrowed")
     private boolean isBorrowed;
 
     /**

@@ -26,6 +26,14 @@ public interface IAdminService {
     List<Admin> getAdminList();
 
     /**
+     * Gets admin by id.
+     *
+     * @param findId the id of the Admin that needs to be found
+     * @return the admin
+     */
+    Admin findAdminById(Long findId);
+
+    /**
      * Update admin admin.
      *
      * @param toUpdate the to update

@@ -26,6 +26,14 @@ public interface IBookService {
     List<Book> getBookList();
 
     /**
+     * Gets book by id.
+     *
+     * @param bookId the book id
+     * @return the book
+     */
+    Book getBookById(Long bookId);
+
+    /**
      * Update book book.
      *
      * @param toUpdate the to update

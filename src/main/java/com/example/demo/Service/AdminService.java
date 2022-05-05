@@ -27,6 +27,11 @@ public class AdminService implements IAdminService{
     }
 
     @Override
+    public Admin findAdminById(Long foundId){
+        return adminRepo.findById(foundId).get();
+    }
+
+    @Override
     public Admin updateAdmin(Admin toUpdate, Long adminID) {
         Admin updatedAdmin = adminRepo.findById(adminID).get();
 
@@ -55,6 +60,6 @@ public class AdminService implements IAdminService{
 
     @Override
     public void deleteAdminById(Long toDelete) {
-
+        adminRepo.deleteById(toDelete);
     }
 }

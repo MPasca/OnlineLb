@@ -26,6 +26,14 @@ public interface IReaderService {
     List<Reader> getReaderList();
 
     /**
+     * Find reader by id reader.
+     *
+     * @param foundId the found id
+     * @return the reader
+     */
+    Reader findReaderById(Long foundId);
+
+    /**
      * Update reader reader.
      *
      * @param toUpdate - the created Reader obj (toUpdate) - contains all new information for the selected Reader
