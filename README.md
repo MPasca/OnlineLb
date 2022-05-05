@@ -39,3 +39,11 @@ Update: 05.05.2022, 04.02 pm
 Added findById for readers, admins and books
 A bit of retouching, solved some bugs
 Wrote the javadoc for the new methods
+
+Update: 05.05.2022, 10:49 pm
+I created the UML & DB diagrams
+Created Validators for data
+Created MaterialFactory for books and videos - still have to work a bit on that
+Cleaned the DB of useless tables
+Cleaned the code
+Today was a good day!
