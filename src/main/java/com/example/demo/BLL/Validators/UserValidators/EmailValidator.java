@@ -5,21 +5,22 @@ import com.example.demo.Model.User;
 
 import java.util.regex.Pattern;
 
-public class EmailValidator implements Validator<User> {
+public class EmailValidator implements Validator<String> {
     private static final EmailValidator emailValidator = new EmailValidator();
     public static Validator getInstance() {
         return emailValidator;
     }
-    private EmailValidator(){}
+    public EmailValidator(){}
 
     private static final String EMAIL_PATTERN = "[a-z]+([\\.\\_]?[a-zA-Z0-9]+)*\\@[a-z]+\\.com";
 
     @Override
-    public void validate(User user) {
+    public boolean validate(String email) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
 
-        if(!pattern.matcher(user.getEmail()).matches()){
-            throw new IllegalArgumentException("Not a valid email address!");
+        if(!pattern.matcher(email).matches()){
+            return false;
         }
+        return true;
     }
 }

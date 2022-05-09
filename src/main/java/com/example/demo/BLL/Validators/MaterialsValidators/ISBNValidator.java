@@ -18,9 +18,10 @@ public class ISBNValidator implements Validator<Book> {
     private IBookService bookService;
 
     @Override
-    public void validate(Book book) {
+    public boolean validate(Book book) {
         if(bookService.getBookByISBN(book.getISBN()) != null){
             throw new IllegalArgumentException("A book with this ISBN code already exists");
         }
+        return false;
     }
 }

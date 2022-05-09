@@ -7,6 +7,9 @@ import com.example.demo.BLL.Validators.Validator;
 import com.example.demo.Model.Admin;
 import com.example.demo.Model.Reader;
 import com.example.demo.Model.User;
+import com.example.demo.Service.IAdminService;
+import com.example.demo.Service.IReaderService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 /**
@@ -21,6 +24,12 @@ public class UserFactory {
     }
 
     private UserFactory(){}
+
+    @Autowired
+    private IAdminService adminService;
+
+    @Autowired
+    private IReaderService readerService;
 
     /**
      * Create user user.
@@ -38,15 +47,16 @@ public class UserFactory {
     public User createUser(UserType userType, String firstName, String lastName, String password, String email, String address, String telephone) throws Exception {
         switch(userType){
             case READER:
-                Validator emailValidator = EmailValidator.getInstance();
-                Validator telephoneValidator = TelephoneValidator.getInstance();
+                EmailValidator.getInstance().validate(email);
+                TelephoneValidator.getInstance().validate(telephone);
 
-                emailValidator.validate(email);
-                telephoneValidator.validate(telephone);
-                return new Reader(email, password, firstName, lastName, address, telephone);
+
+                return readerService.saveReader(new Reader(email, password, firstName, lastName, address, telephone));
 
             case ADMIN:
-                return new Admin(email, password, firstName, lastName);
+                EmailValidator.getInstance().validate(email);
+
+                return adminService.saveAdmin(new Admin(email, password, firstName, lastName));
         }
 
         throw new Exception("User Type not found");

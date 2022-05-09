@@ -14,7 +14,7 @@ import java.util.Objects;
 @Service
 public class AdminService implements IAdminService{
     @Autowired
-    private AdminRepo adminRepo;
+    public AdminRepo adminRepo;
 
     @Override
     public Admin saveAdmin(Admin newAdmin) {

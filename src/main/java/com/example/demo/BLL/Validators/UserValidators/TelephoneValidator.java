@@ -1,11 +1,10 @@
 package com.example.demo.BLL.Validators.UserValidators;
 
 import com.example.demo.BLL.Validators.Validator;
-import com.example.demo.Model.Reader;
 
 import java.util.regex.Pattern;
 
-public class TelephoneValidator implements Validator<Reader> {
+public class TelephoneValidator implements Validator<String> {
     private static final TelephoneValidator telephoneValidator = new TelephoneValidator();
     public static Validator getInstance() {
         return telephoneValidator;
@@ -14,10 +13,11 @@ public class TelephoneValidator implements Validator<Reader> {
 
     private static final String TELEPHONE_PATTERN = "(\\+4)?07[0-9]{8}";
     @Override
-    public void validate(Reader reader) {
+    public boolean validate(String telephone) {
         Pattern pattern = Pattern.compile(TELEPHONE_PATTERN);
-        if(!pattern.matcher(reader.getTelephone()).matches()){
-            throw new IllegalArgumentException("Not a valid telephone number!");
+        if(!pattern.matcher(telephone).matches()){
+            return false;
         }
+        return true;
     }
 }

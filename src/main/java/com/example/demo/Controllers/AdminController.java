@@ -27,7 +27,7 @@ public class AdminController {
      * @PostMapping - Create operation we mark it as /readers because it affects the readers DB
      */
     @PostMapping("/admins")
-    public Admin createReader(@RequestBody Admin admin){
+    public Admin createAdmin(@RequestBody Admin admin){
         return adminService.saveAdmin(admin);
     }
 

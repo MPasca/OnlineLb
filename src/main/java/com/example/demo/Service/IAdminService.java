@@ -29,7 +29,7 @@ public interface IAdminService {
      * Gets admin by id.
      *
      * @param findId the id of the Admin that needs to be found
-     * @return the admin
+     * @return the admin--
      */
     Admin findAdminById(Long findId);
 

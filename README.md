@@ -47,3 +47,49 @@ Created MaterialFactory for books and videos - still have to work a bit on that
 Cleaned the DB of useless tables
 Cleaned the code
 Today was a good day!
+
+Usage:
+using the /readers path, the user can access the set of instructions set for readers:
+    /post           (create a new instance of a Reader in the table),
+    /get            (fetch the list of readers from the table),
+    /get/{id}       (fetch a reader by its id),
+    /put/{id}       (update certain data of a reader sent by id)
+    /delete/{id}    (delete a reader by its id)
+using the /admins path, the user can access the set of instructions set for admins:
+    /post           (create a new instance of a Admin in the table),
+    /get            (fetch the list of admins from the table),
+    /get/{id}       (fetch an admin by its id),
+    /put/{id}       (update certain data of an admin sent by id)
+    /delete/{id}    (delete an admin by its id)
+using the /books path, the user can access the set of instructions set for books:
+    /post           (create a new instance of a Book in the table),
+    /get            (fetch the list of books from the table),
+    /get/{id}       (fetch a book by its id),
+    /put/{id}       (update certain data of a book sent by id)
+    /delete/{id}    (delete a book by its id)
+
+All three have the same flow in a nutshell, so I will explain for Reader.
+Create:
+    For the Create in CRUD, it starts from ReaderController, where a Reader object is created 
+        with the information that was sent as input, and then sends it to the Reader Service.
+    In Reader Service the methods defined in the interface (IReaderService) are implemented
+        for working with the DB. Here in the saveReader method, it sends the Reader object
+        and sends it to the Reader Repo.
+    Reader Repo is an interface that extends CrudRepository, and it's used to connect the program
+        to the Readers table. It comes with a set of methods, one of which is "save", which is used
+        to create a new instance of the reader object sent as a parameter in the table.
+
+Read 1:
+    For the Read in CRUD, it starts again from the ReaderController, where the request is sent
+        to the Reader Service.
+    The Reader Service calls the findAll method of the CrudRepository interface and returns a list
+        containing the readers found in the DB.
+
+Read 2:
+    Another instruction defined as a Read operation is find by id. The request sent also asks for an id
+        that will become the main focus. The id represents the Reader object we're looking for in the DB.
+    In Reader Service another method of the CrudRepository interface is called, this time findById(id).
+        Once an object is found, it returns it to ReaderController, which will again return it.
+
+Update:
+    
