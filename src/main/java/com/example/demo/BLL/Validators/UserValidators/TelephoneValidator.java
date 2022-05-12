@@ -4,9 +4,18 @@ import com.example.demo.BLL.Validators.Validator;
 
 import java.util.regex.Pattern;
 
+/**
+ * The type Telephone validator.
+ */
 public class TelephoneValidator implements Validator<String> {
     private static final TelephoneValidator telephoneValidator = new TelephoneValidator();
-    public static Validator getInstance() {
+
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
+    public static Validator<String> getInstance() {
         return telephoneValidator;
     }
     private TelephoneValidator(){}
@@ -15,9 +24,6 @@ public class TelephoneValidator implements Validator<String> {
     @Override
     public boolean validate(String telephone) {
         Pattern pattern = Pattern.compile(TELEPHONE_PATTERN);
-        if(!pattern.matcher(telephone).matches()){
-            return false;
-        }
-        return true;
+        return pattern.matcher(telephone).matches();
     }
 }

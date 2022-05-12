@@ -33,6 +33,12 @@ public interface IBookService {
      */
     Book getBookById(Long bookId);
 
+    /**
+     * Gets book by isbn.
+     *
+     * @param ISBN the isbn
+     * @return the book by isbn
+     */
     Book getBookByISBN(String ISBN);
 
     /**

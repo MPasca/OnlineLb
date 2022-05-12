@@ -92,4 +92,22 @@ Read 2:
         Once an object is found, it returns it to ReaderController, which will again return it.
 
 Update:
-    
+    For Update, there's the method updateReader, which gets the information and creates a
+        Reader instance with it and sends it as a parameter along with the id of the Reader
+        instance to update. There it calls for the updateReader method in ReaderService.
+    In Reader Service, first it fetches the Reader instance that needs to be updated using the id
+        sent as a parameter. Then, the information sent as a Reader instance is verified,
+        field by field. If it is empty, then it means that attribute suffers no changes.
+        Otherwise, it verifies if the information sent is valid and updates that attribute.
+    After each field is processed, the method save from Reader Repo is called, and the parameter sent
+        is the updated reader.
+    After the updated info is saved, it returns to the Reader Controller the updated Reader.
+
+Delete:
+    For Delete, there's the method deleteReader, which gets the id to delete as a parameter and further
+        sends is to the Reader Service.
+    In Reader Service, the method deleteById from Reader Repo is called, and the id of the reader to be deleted
+        is sent. The action is executed in the DB and then the method returns the message 
+        "Reader {id_reader} has been successfully deleted"
+
+Same goes for the other controllers also.

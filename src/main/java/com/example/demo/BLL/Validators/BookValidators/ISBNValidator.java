@@ -1,14 +1,21 @@
-package com.example.demo.BLL.Validators.MaterialsValidators;
+package com.example.demo.BLL.Validators.BookValidators;
 
 import com.example.demo.BLL.Validators.Validator;
-import com.example.demo.Model.Book;
 import com.example.demo.Service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class ISBNValidator implements Validator<Book> {
+/**
+ * The type Isbn validator.
+ */
+public class ISBNValidator implements Validator<String> {
     private static ISBNValidator isbnValidator = new ISBNValidator();
 
-    public static Validator getInstance() {
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
+    public static Validator<String> getInstance() {
         return isbnValidator;
     }
 
@@ -18,10 +25,10 @@ public class ISBNValidator implements Validator<Book> {
     private IBookService bookService;
 
     @Override
-    public boolean validate(Book book) {
-        if(bookService.getBookByISBN(book.getISBN()) != null){
+    public boolean validate(String isbn) {
+        if(bookService.getBookByISBN(isbn) != null){
             throw new IllegalArgumentException("A book with this ISBN code already exists");
         }
-        return false;
+        return true;
     }
 }

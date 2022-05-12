@@ -4,8 +4,14 @@ package com.example.demo.Model;
  * The type Video.
  */
 public class Video extends Material{
+    /**
+     * The Id.
+     */
     Long id;
 
+    /**
+     * The Name.
+     */
     String name;
     /**
      * The Director.
@@ -57,5 +63,8 @@ public class Video extends Material{
         this.year = year;
     }
 
+    /**
+     * Instantiates a new Video.
+     */
     public Video(){}
 }

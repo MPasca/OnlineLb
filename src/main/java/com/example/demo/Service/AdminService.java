@@ -13,6 +13,9 @@ import java.util.Objects;
  */
 @Service
 public class AdminService implements IAdminService{
+    /**
+     * The Admin repo.
+     */
     @Autowired
     public AdminRepo adminRepo;
 

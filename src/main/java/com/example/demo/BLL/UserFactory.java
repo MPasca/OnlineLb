@@ -1,9 +1,7 @@
 package com.example.demo.BLL;
 
-import com.example.demo.BLL.Validators.MaterialsValidators.ISBNValidator;
 import com.example.demo.BLL.Validators.UserValidators.EmailValidator;
 import com.example.demo.BLL.Validators.UserValidators.TelephoneValidator;
-import com.example.demo.BLL.Validators.Validator;
 import com.example.demo.Model.Admin;
 import com.example.demo.Model.Reader;
 import com.example.demo.Model.User;
@@ -15,10 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * The type User factory.
  */
-
 //@Singleton
 public class UserFactory {
     private static final UserFactory userFactory = new UserFactory();
+
+    /**
+     * Get instance user factory.
+     *
+     * @return the user factory
+     */
     public static UserFactory getInstance(){
         return userFactory;
     }

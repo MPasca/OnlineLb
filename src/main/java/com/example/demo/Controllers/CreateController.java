@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+/**
+ * The type Create controller.
+ */
 public class CreateController {
     @Autowired
     private IAdminService adminService;
@@ -19,6 +22,13 @@ public class CreateController {
     @Autowired
     private IReaderService readerService;
 
+    /**
+     * Create user user.
+     *
+     * @param type the type
+     * @param data the data
+     * @return the user
+     */
     @PostMapping("/create/{type}")
     public User createUser(@PathVariable("type") String type, @RequestBody String[] data){
         System.out.println(type);
