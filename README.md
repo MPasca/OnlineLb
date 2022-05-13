@@ -67,8 +67,14 @@ using the /books path, the user can access the set of instructions set for books
     /get/{id}       (fetch a book by its id),
     /put/{id}       (update certain data of a book sent by id)
     /delete/{id}    (delete a book by its id)
+using the /borrowings path, the user can access the set of instructions set for borrowings:
+    /post           (create a new instance of a Borrowing in the table),
+    /get            (fetch the list of borrowings from the table),
+    /get/{id}       (fetch a borrowing by its id),
+    /put/{id}       (update a borrowing - mark it as returned)
+    /delete/{id}    (delete a borrowing by its id)   
 
-All three have the same flow in a nutshell, so I will explain for Reader.
+All four have the same flow in a nutshell, so I will explain for Reader.
 Create:
     For the Create in CRUD, it starts from ReaderController, where a Reader object is created 
         with the information that was sent as input, and then sends it to the Reader Service.
@@ -110,4 +116,4 @@ Delete:
         is sent. The action is executed in the DB and then the method returns the message 
         "Reader {id_reader} has been successfully deleted"
 
-Same goes for the other controllers also.
+Same goes for the other controllers.

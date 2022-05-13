@@ -1,9 +1,7 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.BLL.Validators.BorrowValidators.BookValidator;
-import com.example.demo.Model.Book;
+import com.example.demo.BLL.Validators.BorrowValidators.NotBorrowedValidator;
 import com.example.demo.Model.Borrowing;
-import com.example.demo.Service.IBookService;
 import com.example.demo.Service.IBorrowingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +16,6 @@ public class BorrowingController {
     @Autowired
     private IBorrowingService borrowingService;
 
-    @Autowired
-    private IBookService bookService;
-
     /**
      * Create a new Borrowing instance.
      *
@@ -29,8 +24,7 @@ public class BorrowingController {
      */
     @PostMapping("/borrowings")
     public Borrowing createBorrowing(@RequestBody Borrowing newBorrowing){
-        if(BookValidator.getInstance().validate(newBorrowing.getBookID())){
-            bookService.updateBook(new Book("", "", "", "", "", 0, "", true), newBorrowing.getBookID());
+        if(NotBorrowedValidator.getInstance().validate(newBorrowing.getBookID())){
             return borrowingService.saveBorrowing(newBorrowing);
         }
         else{
@@ -68,8 +62,6 @@ public class BorrowingController {
      */
     @PutMapping("/borrowings/{id}")
     public Borrowing endBorrowing(@RequestBody Borrowing borrowing, @PathVariable("id") Long toUpdate){
-        Long bookID = borrowingService.getBorrowingByID(toUpdate).getBookID();
-        bookService.updateBook(new Book("", "", "", "", "", 0, "", false), bookID);
         return borrowingService.updateBorrowing(borrowing, toUpdate);
     }
 

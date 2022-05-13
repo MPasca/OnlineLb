@@ -17,8 +17,12 @@ public class BorrowingService implements IBorrowingService{
     @Autowired
     private BorrowingRepo borrowingRepo;
 
+    @Autowired
+    private IBookService bookService;
+
     @Override
     public Borrowing saveBorrowing(Borrowing newBorrowing) {
+        bookService.updateBook(new Book("", "", "", "", "", 0, "", true), newBorrowing.getBookID());
         return borrowingRepo.save(newBorrowing);
     }
 
@@ -34,6 +38,9 @@ public class BorrowingService implements IBorrowingService{
 
     @Override
     public Borrowing updateBorrowing(Borrowing toUpdate, Long borrowingID) {
+        Long bookID = getBorrowingByID(borrowingID).getBookID();
+        bookService.updateBook(new Book("", "", "", "", "", 0, "", false), bookID);
+
         Borrowing updatedBorrowing = borrowingRepo.findById(borrowingID).get();
 
         if(Objects.nonNull(toUpdate.getReturnDate())){

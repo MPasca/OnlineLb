@@ -17,16 +17,16 @@ public class Borrowing {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "readerID")
+    @Column(name = "reader_id")
     private Long readerID;
 
-    @Column(name = "bookID")
+    @Column(name = "book_id")
     private Long bookID;
 
-    @Column(name = "borrowDate")
+    @Column(name = "borrow_date")
     private LocalDate borrowDate;
 
-    @Column(name = "returnDate")
+    @Column(name = "return_date")
     private Date returnDate;
 
     @Column(name = "status")
