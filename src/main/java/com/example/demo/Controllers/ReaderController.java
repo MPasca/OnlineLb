@@ -1,7 +1,8 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Model.Reader;
-import com.example.demo.Service.ReaderService;
+import com.example.demo.Service.IReaderService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,14 +17,14 @@ public class ReaderController {
      * singleton for service (we're taking the data from the DB)
      */
     @Autowired
-    private ReaderService readerService;
+    private IReaderService readerService;
 
     /**
-     * @PostMapping - Create operation
-     * we mark it as /readers because it affects the readers DB
+     * Create reader reader.
      *
      * @param reader - takes the input from @RequestBody and sends it to the Service
      * @return the created reader to the front-end
+     * @PostMapping - Create operation we mark it as /readers because it affects the readers DB
      */
     @PostMapping("/readers")
     public Reader createReader(@RequestBody Reader reader){
@@ -31,9 +32,10 @@ public class ReaderController {
     }
 
     /**
+     * fetches the existing readers list from the DB and sends it onwards
+     *
+     * @return list list
      * @GetMappping - Read operation
-     *  fetches the existing readers list from the DB and sends it to the front end
-     * @return
      */
     @GetMapping("/readers")
     public List<Reader> fetchReaderList(){
@@ -41,11 +43,23 @@ public class ReaderController {
     }
 
     /**
-     * @PutMapping - Update operation
-     *  modifies an existing reader (sent by id) with the sent data
-     * @param toUpdate
-     * @param readerID
-     * @return
+     * Find reader by id reader.
+     *
+     * @param idToFind the id to find
+     * @return the reader
+     */
+    @GetMapping("/readers/{id}")
+    public Reader findReaderById(@PathVariable("id") Long idToFind){
+        return readerService.findReaderById(idToFind);
+    }
+
+    /**
+     * Update reader reader.
+     *
+     * @param toUpdate the to update
+     * @param readerID the reader id
+     * @return reader reader
+     * @PutMapping - Update operation  modifies an existing reader (sent by id) with the sent data
      */
     @PutMapping("/readers/{id}")
     public Reader updateReader(@RequestBody Reader toUpdate, @PathVariable("id") Long readerID){
@@ -53,10 +67,11 @@ public class ReaderController {
     }
 
     /**
-     * @DeleteMapping - Delete operation
-     *  delete an existing reader sent by id
-     * @param readerID
-     * @return
+     * Delete reader string.
+     *
+     * @param readerID the reader id
+     * @return string string
+     * @DeleteMapping - Delete operation  delete an existing reader sent by id
      */
     @DeleteMapping("/readers/{id}")
     public String deleteReader(@PathVariable("id") Long readerID){

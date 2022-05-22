@@ -2,17 +2,18 @@ package com.example.demo.Model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+/**
+ * The type Book.
+ */
 @Data
 @Entity
 @Table(name = "books")
-public class Book{
+public class Book extends Material{
     @Id
-    private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -35,6 +36,66 @@ public class Book{
     @Column(name = "cover")
     private String cover;
 
-    @Column(name = "isBorrowed")
+    @Column(name = "is_borrowed")
     private boolean isBorrowed;
+
+    /**
+     * Instantiates a new Book.
+     */
+    public Book(){
+
+    }
+
+    /**
+     * Instantiates a new Book.
+     *
+     * @param title     the title
+     * @param author    the author
+     * @param genre     the genre
+     * @param ISBN      the ISBN code
+     * @param publisher the publisher
+     * @param year      the year
+     * @param cover     the cover
+     */
+    public Book(String title, String author, String genre, String ISBN, String publisher, int year, String cover){
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.ISBN = ISBN;
+        this.publisher = publisher;
+        this.cover = cover;
+        this.isBorrowed = false;
+    }
+
+    /**
+     * Instantiates a new Book.
+     *
+     * @param title      the title
+     * @param author     the author
+     * @param genre      the genre
+     * @param ISBN       the isbn
+     * @param publisher  the publisher
+     * @param year       the year
+     * @param cover      the cover
+     * @param isBorrowed the is borrowed
+     */
+    public Book(String title, String author, String genre, String ISBN, String publisher, int year, String cover, boolean isBorrowed){
+        super(title, genre);
+
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.ISBN = ISBN;
+        this.publisher = publisher;
+        this.year = year;
+        this.cover = cover;
+        this.isBorrowed = isBorrowed;
+    }
+
+    public String toString(){
+        String toReturn = id + " " + title + " " + author + " " + genre + " " + publisher + " " +
+                year + " " + ISBN + " " + cover + " " + isBorrowed;
+        return toReturn;
+    }
+
 }

@@ -1,22 +1,47 @@
 package com.example.demo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
 
-@Entity
-@Table
+/**
+ * The type User.
+ */
+@Data
 public abstract class User {
-    @Id
-    private Long id;
-    String username;
+    /**
+     * The Email.
+     */
+    String email;
+    /**
+     * The Password.
+     */
     String password;
+    /**
+     * The First name.
+     */
+    String firstName;
+    /**
+     * The Last name.
+     */
+    String lastName;
 
-    public User(String username, String password){
-        this.username = username;
+    /**
+     * Instantiates a new User.
+     *
+     * @param email     the email
+     * @param password  the password
+     * @param firstName the first name
+     * @param lastName  the last name
+     */
+    public User(String email, String password, String firstName, String lastName){
+        this.email = email;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
+    /**
+     * Instantiates a new User.
+     */
     public User() {
 
     }

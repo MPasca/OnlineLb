@@ -1,12 +1,12 @@
 package com.example.demo.Repos;
 
-import com.example.demo.Model.Book;
+import com.example.demo.Model.Borrowing;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- * creates the CrudRepository for the Books repo
+ * The interface Borrowing repo.
  */
 @Repository
-public interface BookRepository extends CrudRepository<Book, Long> {
+public interface BorrowingRepo extends CrudRepository<Borrowing, Long> {
 }

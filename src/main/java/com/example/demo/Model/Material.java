@@ -1,28 +1,33 @@
 package com.example.demo.Model;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Setter
-@Getter
-@Table
+/**
+ * The type Material.
+ */
 public abstract class Material {
-    @Id
-    Long id;
+
+    /**
+     * The Name.
+     */
     String name;
+    /**
+     * The Categ.
+     */
     String categ;
 
-    public Material(Long id, String name, String categ){
-        this.id = id;
+    /**
+     * Instantiates a new Material.
+     *
+     * @param name  the name
+     * @param categ the categ
+     */
+    public Material(String name, String categ){
         this.name = name;
         this.categ = categ;
     }
 
+    /**
+     * Instantiates a new Material.
+     */
     public Material() {
 
     }

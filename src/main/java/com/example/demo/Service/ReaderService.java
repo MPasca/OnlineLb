@@ -1,7 +1,7 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.Reader;
-import com.example.demo.Repos.ReaderRepository;
+import com.example.demo.Repos.ReaderRepoJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  * the implementation of the interface IReaderService for
-                     *  managing the data in the database
+ * managing the data in the database
  */
 @Service
 public class ReaderService implements IReaderService{
@@ -19,7 +19,7 @@ public class ReaderService implements IReaderService{
      * the singleton for ReaderRepo
      */
     @Autowired
-    private ReaderRepository readerRepository;
+    private ReaderRepoJPA readerRepository;
 
     /**
      *
@@ -43,6 +43,11 @@ public class ReaderService implements IReaderService{
         return (List<Reader>) readerRepository.findAll();
     }
 
+    @Override
+    public Reader findReaderById(Long foundId){
+        return readerRepository.findById(foundId).get();
+    }
+
     /**
      *
      * @param toUpdate - the created Reader obj (toUpdate) - contains all new information for the selected Reader
@@ -58,7 +63,7 @@ public class ReaderService implements IReaderService{
 
         if(Objects.nonNull(toUpdate.getFirstName())
             && !"".equalsIgnoreCase(toUpdate.getFirstName())){
-            updatedReader.setFirstName(toUpdate.getAddress());
+            updatedReader.setFirstName(toUpdate.getFirstName());
         }
 
         if(Objects.nonNull(toUpdate.getLastName())
@@ -80,6 +85,12 @@ public class ReaderService implements IReaderService{
                 && !"".equalsIgnoreCase(toUpdate.getAddress())){
             updatedReader.setAddress(toUpdate.getAddress());
         }
+
+        if(Objects.nonNull(toUpdate.getPassword())
+                && !"".equalsIgnoreCase(toUpdate.getPassword())){
+            updatedReader.setEmail(toUpdate.getPassword());
+        }
+
 
         return readerRepository.save(updatedReader);
     }

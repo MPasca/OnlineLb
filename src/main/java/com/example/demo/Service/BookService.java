@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Book service.
+ */
 @Service
 public class BookService implements IBookService {
     @Autowired
@@ -20,12 +23,30 @@ public class BookService implements IBookService {
 
     @Override
     public List<Book> getBookList() {
-        return bookRepository.findAll();
+        return (List<Book>) bookRepository.findAll();
+    }
+
+    @Override
+    public Book getBookById(Long bookId){
+        return bookRepository.findById(bookId).get();
+    }
+
+    @Override
+    public Book getBookByISBN(String ISBN) {
+        List<Book> bookList = getBookList();
+
+        for(Book book: bookList){
+            if(book.getISBN().equals(ISBN)){
+                return book;
+            }
+        }
+
+        return null;
     }
 
     @Override
     public Book updateBook(Book toUpdate, Long bookID) {
-        Book updatedBook = bookRepository.getById(bookID);
+        Book updatedBook = bookRepository.findById(bookID).get();
 
         if(Objects.nonNull(toUpdate.getTitle()) && !"".equalsIgnoreCase(toUpdate.getTitle())){
             updatedBook.setTitle(toUpdate.getTitle());
